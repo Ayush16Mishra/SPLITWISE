@@ -1,0 +1,3 @@
+{"email":"p@p.com","groupId":1735210421106,"groupName":"Test","spending":1744.3333333333333}
+{"email":"p@p.com","groupId":1735210421106,"groupName":"Test2","spending":1}
+{"email":"Ayushpc025@gmail.com","groupId":1735210421106,"groupName":"Test","spending":437.3333333333333}

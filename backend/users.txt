@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Ayush Mishra",
+    "email": "Ayushpc025@gmail.com",
+    "username": "ayush_mishra16",
+    "password": "$2b$10$U083IiSDWXEhiTRgYrhoge/MsWMb.EqvK3ZMLo1NESeR25JxPyGny",
+    "groupId": [
+      1735210421106
+      
+    ]
+  },
+  {
+    "name": "Dokja",
+    "email": "p@p.com",
+    "username": "Demon",
+    "password": "$2b$10$l1a9UH24pAmTThZ9IRvJiuGfQOn4oMaPX3Jk2tFDavPRV7iK3PNK6",
+    "groupId": [
+      1735210421106
+      
+    ]
+  },
+  {
+    "name": "sA",
+    "email": "ashmishra2004@gmail.com",
+    "username": "as",
+    "password": "$2b$10$EHkA3CvS9C3DUwFJV5woXusQ9I31G7G3eoLrpUMLo/ak6MxTQZF8S",
+    "groupId": [
+      1735210421106
+    ]
+  }
+]
