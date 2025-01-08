@@ -1,0 +1,183 @@
+/* Container for the entire group page */
+.groupPageContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #a4e6e1;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: auto; /* Allow scrolling of the page */
+}
+
+/* Sidebar styling */
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 7%;
+    gap: 2%;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;  /* Make the navbar sticky */
+    top: 0;  /* Position it at the top of the screen */
+    z-index: 100;  /* Ensure the navbar is always on top */
+}
+
+.navbar-link {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.navbar-link:hover {
+    color: #007b7f;
+}
+
+/* Body of the page */
+.body {
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    padding: 2%;
+    flex-grow: 1;  /* Allow the body to take up the rest of the height */
+}
+
+/* New Group section */
+.newGroup {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 15px;  /* Reduced padding for smaller height */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    height: auto;  /* Allow height to be determined by content */
+}
+
+.createGroupButton {
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    background-color: #007b7f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    min-width: 150px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.createGroupButton:hover {
+    background-color: #004c47;
+}
+
+/* Old Groups section */
+.oldGroups {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;  /* Make the oldGroups section fill the remaining space */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Wrapper for old groups content */
+.oldGroupsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-grow: 1;  /* Make it fill remaining space if there are no groups */
+    overflow-y: auto; /* Allow scrolling if the group list is long */
+}
+
+/* Individual group card */
+.groupCard {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.groupCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Group title styling */
+.groupCard .groupTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #007b7f;
+}
+
+/* Group metadata styling */
+.groupCard .groupMetadata {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* No groups message */
+.noGroupsMessage {
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+    margin-top: 20px;
+}
+
+/* Heading for group sections */
+.heading h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 1200px) {
+    .body {
+        padding: 15px;
+    }
+
+    .newGroup, .oldGroups {
+        padding: 15px;
+    }
+
+    .groupCard {
+        padding: 8px;
+    }
+
+    .groupCard .groupTitle {
+        font-size: 1rem;
+    }
+
+    .groupCard .groupMetadata {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .body {
+        padding: 10px;
+    }
+
+    .newGroup, .oldGroups {
+        padding: 10px;
+    }
+
+    .groupCard {
+        padding: 6px;
+    }
+
+    .groupCard .groupTitle {
+        font-size: 0.9rem;
+    }
+
+    .groupCard .groupMetadata {
+        font-size: 0.7rem;
+    }
+}
