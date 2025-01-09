@@ -13,7 +13,7 @@ const databaseRoutes =require('./routes/database');
 
 const app = express();
 const PORT = 5000;
-const allowedOrigins=['http://localhost:3000','https://frontend-8hcnbum2d-ayush-mishras-projects-6e8c1469.vercel.app'];
+const allowedOrigins=['http://localhost:3000','https://frontend-seven-beta-34.vercel.app'];
 
 const corsOptions = {
   origin: (origin, callback) => {
