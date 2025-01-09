@@ -13,7 +13,7 @@ const databaseRoutes =require('./routes/database');
 
 const app = express();
 const PORT = 5000;
-const allowedOrigins=['http://localhost:3000','https://frontend-seven-beta-34.vercel.app'];
+const allowedOrigins=['http://localhost:3000','https://splitwise-wine.vercel.app'];
 
 const corsOptions = {
   origin: (origin, callback) => {
