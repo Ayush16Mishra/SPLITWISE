@@ -13,12 +13,28 @@ const databaseRoutes =require('./routes/database');
 
 const app = express();
 const PORT = 5000;
+const allowedOrigins=['http://localhost:3000','https://frontend-8hcnbum2d-ayush-mishras-projects-6e8c1469.vercel.app'];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true); // Allow request from allowed origin
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true, // Enable sending credentials (cookies) with the request
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Ensure methods are allowed
+  allowedHeaders: ['Content-Type', 'Authorization'], // Ensure headers are allowed
+};
+
+app.use(cors(corsOptions)); // Apply CORS middleware
+
 
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));  // Use CORS with options
 app.use(bodyParser.json());
 
-// Base API route message
 app.get('/', (req, res) => {
     res.send('API is running. Navigate to /api for endpoints.');
 });

@@ -3,10 +3,11 @@ import React, { useState } from "react";
 function JoinGroup() {
     const [groupId, setGroupId] = useState("");
     const [message, setMessage] = useState("");
-
     const handleSubmit = (e) => {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
         e.preventDefault();
-        fetch("http://localhost:5000/api/groups/join", {
+        fetch(`${backendUrl}/api/groups/join`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

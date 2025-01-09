@@ -17,6 +17,7 @@ function Dashboard() {
     const [spendings,setSpendings]=useState(0);
     const [error, setError] = useState("");
     const [name,setName]= useState("");
+
     
     const toggleCreateGroup = () => {
         setIsCreatingGroup(!isCreatingGroup);
@@ -31,8 +32,9 @@ function Dashboard() {
 
 
     const fetchTotalDebt = async () => {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL;
         try {
-            const response = await fetch(`http://localhost:5000/api/dashboard/total-debt`, {
+            const response = await fetch(`${backendUrl}/api/dashboard/total-debt`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -52,8 +54,9 @@ function Dashboard() {
     };
 
     const fetchTotalLoans = async () => {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL;
         try {
-            const response = await fetch(`http://localhost:5000/api/dashboard/total-loans`, {
+            const response = await fetch(`${backendUrl}/api/dashboard/total-loans`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -74,8 +77,9 @@ function Dashboard() {
 
 
     const fetchLatestGroup = async () => {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL;
         try {
-            const response = await fetch(`http://localhost:5000/api/dashboard/latest`, {
+            const response = await fetch(`${backendUrl}/api/dashboard/latest`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

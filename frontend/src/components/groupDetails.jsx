@@ -9,10 +9,11 @@ function GroupDetails() {
     const [userEmail, setUserEmail] = useState("");
     const [groupStats, setGroupStats] = useState({ totalDebt: 0, totalLoans: 0, totalSpending: 0 });
     const [loadingStats, setLoadingStats] = useState(true);
-
     useEffect(() => {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
         // Fetch group details
-        fetch(`http://localhost:5000/api/groups/${groupId}`, {
+        fetch(`${backendUrl}/api/groups/${groupId}`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -32,7 +33,7 @@ function GroupDetails() {
             });
     
         // Fetch group stats (debts, loans, and spending)
-        fetch(`http://localhost:5000/api/groups/${groupId}/details`, {
+        fetch(`${backendUrl}/api/groups/${groupId}/details`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,

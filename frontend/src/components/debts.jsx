@@ -8,10 +8,11 @@ function Debts({ groupId }) {
     const [isResolving, setIsResolving] = useState(false); // Resolve loading state
     const [expandedTransactions, setExpandedTransactions] = useState({}); // Track expanded transactions
     const token = localStorage.getItem("token");
-
     // Fetch debts from the server
     useEffect(() => {
-        fetch(`http://localhost:5000/api/groups/${groupId}/debts`, {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
+        fetch(`${backendUrl}/api/groups/${groupId}/debts`, {
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
@@ -53,10 +54,12 @@ function Debts({ groupId }) {
 
     // Handle debt resolve
     const handleResolve = (debt_id) => {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
         setIsResolving(true);
         setResolveError("");
 
-        fetch(`http://localhost:5000/api/groups/${groupId}/debts/${debt_id}/settle-request`, {
+        fetch(`${backendUrl}/api/groups/${groupId}/debts/${debt_id}/settle-request`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

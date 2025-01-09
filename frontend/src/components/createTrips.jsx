@@ -9,12 +9,13 @@ function CreateTrips() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleCreateGroup = async (e) => {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL;
     e.preventDefault();
 
     const token = localStorage.getItem('token'); // Get the token
 
     try {
-      const response = await axios.post("http://localhost:5000/api/groups/create", {
+      const response = await axios.post(`${backendUrl}/api/groups/create`, {
         groupName,
       }, {
         headers: {

@@ -4,12 +4,13 @@ import "../styles/FinancePage.css";
 function FinancePage() {
     const [unsettledDebts, setUnsettledDebts] = useState([]);
     const [loading, setLoading] = useState(true);
-
     useEffect(() => {
         // Fetch unsettled loans and debts
         const fetchUnsettledDebts = async () => {
+            const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
             try {
-                const response = await fetch('http://localhost:5000/api/finance/get-unsettled-loans-debts', {
+                const response = await fetch(`${backendUrl}/api/finance/get-unsettled-loans-debts`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`, // Send auth token if needed
                     },

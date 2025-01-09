@@ -6,9 +6,10 @@ import JoinGroup from "./joinGroup";
 function GroupPage() {
     const [groups, setGroups] = useState([]);
     const navigate = useNavigate();
-
     useEffect(() => {
-        fetch("http://localhost:5000/api/groups/user-groups", {
+            const backendUrl = process.env.REACT_APP_BACKEND_URL;
+        
+        fetch(`${backendUrl}/api/groups/user-groups`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -9,7 +9,6 @@ function Transactions({ groupId }) {
     const [reason, setReason] = useState("");
     const [sponsorEnabled, setSponsorEnabled] = useState(false);
     const [sponsor, setSponsor] = useState("");
-
     const [groupParticipants, setGroupParticipants] = useState([]);
     const [loggedInUser, setLoggedInUser] = useState(null); // Store logged-in user
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -17,10 +16,12 @@ function Transactions({ groupId }) {
     const [showLoans, setShowLoans] = useState(false); // State to toggle Loans view
 
     useEffect(() => {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
         const token = localStorage.getItem("token");
 
         // Fetch logged-in user details
-        fetch("http://localhost:5000/api/user", {
+        fetch(`${backendUrl}/api/user`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -34,7 +35,7 @@ function Transactions({ groupId }) {
                 console.error("Error fetching logged-in user:", error);
             });
        
-        fetch(`http://localhost:5000/api/groups/${groupId}`, {
+        fetch(`${backendUrl}/api/groups/${groupId}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -52,11 +53,13 @@ function Transactions({ groupId }) {
 
 
     const handleSubmit = (event) => {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
         event.preventDefault();
         setIsSubmitting(true);
         const token = localStorage.getItem("token");
 
-        fetch(`http://localhost:5000/api/groups/${groupId}/transactions`, {
+        fetch(`${backendUrl}/api/groups/${groupId}/transactions`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

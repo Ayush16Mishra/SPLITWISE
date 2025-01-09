@@ -6,7 +6,8 @@ function Analyze(){
      const [debts, setDebts] = useState([]);
      const [error, setError] = useState("");
      useEffect(()=>{
-        fetch("http://localhost:5000/api/user/user-debts",{
+        const backendUrl = process.env.REACT_APP_BACKEND_URL;
+        fetch(`${backendUrl}/api/user/user-debts`,{
             method:"GET",
             headers:{
                 Authorization: `Bearer ${localStorage.getItem("token")}`,

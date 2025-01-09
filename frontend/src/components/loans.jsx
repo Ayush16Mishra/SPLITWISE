@@ -8,10 +8,11 @@ function Loans({ groupId }) {
     const [isAccepting, setIsAccepting] = useState(false); // Loading state for accepting settlement
     const [expandedTransactions, setExpandedTransactions] = useState({}); // Track expanded transactions
     const token = localStorage.getItem("token");
-
     // Fetch loans from the server
     useEffect(() => {
-        fetch(`http://localhost:5000/api/groups/${groupId}/loans`, {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
+        fetch(`${backendUrl}/api/groups/${groupId}/loans`, {
             headers: {
                 "Content-Type": "application/json",
                 Authorization: `Bearer ${token}`,
@@ -52,10 +53,12 @@ function Loans({ groupId }) {
 
     // Handle accepting settlement
     const handleAcceptSettlement = (debt_id) => {
+        const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
         setIsAccepting(true);
         setAcceptError("");
 
-        fetch(`http://localhost:5000/api/groups/${groupId}/debts/${debt_id}/accept-settlement`, {
+        fetch(`${backendUrl}/api/groups/${groupId}/debts/${debt_id}/accept-settlement`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -4,12 +4,13 @@ import axios from "axios";
 const DatabasePage = () => {
   const [groups, setGroups] = useState([]);
   const [debts, setDebts] = useState([]);
-
   // Fetch group and debt data when the component is mounted
   useEffect(() => {
     const fetchGroupData = async () => {
+      const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
       try {
-        const response = await axios.get("http://localhost:5000/api/database/groups"); // Fetch groups from backend
+        const response = await axios.get(`${backendUrl}/api/database/groups`); // Fetch groups from backend
         setGroups(response.data);
       } catch (error) {
         console.error("Error fetching groups:", error);
@@ -17,8 +18,10 @@ const DatabasePage = () => {
     };
 
     const fetchDebtData = async () => {
+      const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
       try {
-        const response = await axios.get("http://localhost:5000/api/database/debts"); // Fetch debts from backend
+        const response = await axios.get(`${backendUrl}/api/database/debts`); // Fetch debts from backend
         setDebts(response.data);
       } catch (error) {
         console.error("Error fetching debts:", error);
